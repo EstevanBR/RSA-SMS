@@ -42,4 +42,15 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(bool)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options {
+//    NSString *string = [NSString stringWithFormat:[url pathExtension]];
+    NSArray *components = [url pathComponents];
+    for (int i = 0; i < components.count; i++) {
+        NSLog(@"component %d is %@", i, components[i]);
+    }
+    //[[NSNotificationCenter defaultCenter] postNotificationName:string object:nil];
+    return YES;
+    
+}
+
 @end
