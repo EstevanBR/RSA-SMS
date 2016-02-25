@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITextViewDelegate, MFMessageComposeViewControllerDelegate>
+@interface ViewController : UIViewController <UITextViewDelegate, MFMessageComposeViewControllerDelegate, UIApplicationDelegate>
 @property (strong,nonatomic) IBOutlet UITextView *textView;
 @property (strong,nonatomic) IBOutlet UIButton *button;
+@property (strong, nonatomic) NSURL *url;
 
 
 @end

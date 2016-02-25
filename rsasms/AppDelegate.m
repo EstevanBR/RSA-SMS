@@ -43,7 +43,6 @@
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options {
-//    NSString *string = [NSString stringWithFormat:[url pathExtension]];
     NSArray *pathComponents = [url pathComponents];
     NSString* string;
     NSLog(@"%@/", [url host]);
@@ -51,8 +50,10 @@
         NSLog(@"%@%c", pathComponents[i], (i < pathComponents.count) ? '/' : '\0');
         string = [string stringByAppendingString:pathComponents[i]];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:string object:self];
-//    [[NSNotificationCenter defaultCenter] addObserver:<#(nonnull id)#> selector:<#(nonnull SEL)#> name:<#(nullable NSString *)#> object:<#(nullable id)#>
+    //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    //ViewController *vc = [[ViewController alloc] initWithURL:url];
+    //[navigationController pushViewController:vc animated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"url" object:url];
     return YES;
 }
 
