@@ -42,15 +42,18 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
--(bool)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options {
+-(BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options {
 //    NSString *string = [NSString stringWithFormat:[url pathExtension]];
-    NSArray *components = [url pathComponents];
-    for (int i = 0; i < components.count; i++) {
-        NSLog(@"component %d is %@", i, components[i]);
+    NSArray *pathComponents = [url pathComponents];
+    NSString* string;
+    NSLog(@"%@/", [url host]);
+    for (int i = 1; i < [pathComponents count]; i++) {
+        NSLog(@"%@%c", pathComponents[i], (i < pathComponents.count) ? '/' : '\0');
+        string = [string stringByAppendingString:pathComponents[i]];
     }
-    //[[NSNotificationCenter defaultCenter] postNotificationName:string object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:string object:self];
+//    [[NSNotificationCenter defaultCenter] addObserver:<#(nonnull id)#> selector:<#(nonnull SEL)#> name:<#(nullable NSString *)#> object:<#(nullable id)#>
     return YES;
-    
 }
 
 @end
