@@ -15,46 +15,68 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FD2-ep-eYd">
-                                <rect key="frame" x="24" y="28" width="288" height="212"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FD2-ep-eYd">
+                                <rect key="frame" x="8" y="20" width="359" height="240"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="212" id="28n-EW-7zJ"/>
+                                    <constraint firstAttribute="height" constant="240" id="N0N-DQ-vig"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMf-g1-wvX">
-                                <rect key="frame" x="137" y="248" width="46" height="30"/>
+                                <rect key="frame" x="138" y="268" width="100" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="D4o-WA-B5s"/>
+                                    <constraint firstAttribute="height" constant="21" id="8WB-P5-dba"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Send Encoded"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQ5-dq-BGF">
+                                <rect key="frame" x="16" y="268" width="44" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="xLB-Lj-JOU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.21447423986486486" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97926521301269531" green="0.8409467339515686" blue="0.88732481002807617" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="FD2-ep-eYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="8Ud-mg-JkW"/>
-                            <constraint firstItem="FD2-ep-eYd" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="8" id="SeB-xW-Wyl"/>
+                            <constraint firstItem="FD2-ep-eYd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="2ja-rn-6Zu"/>
+                            <constraint firstItem="FD2-ep-eYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8Ud-mg-JkW"/>
+                            <constraint firstAttribute="trailing" secondItem="FD2-ep-eYd" secondAttribute="trailing" constant="8" id="Oxn-jk-M2r"/>
+                            <constraint firstItem="FD2-ep-eYd" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="SeB-xW-Wyl"/>
                             <constraint firstItem="XMf-g1-wvX" firstAttribute="top" secondItem="FD2-ep-eYd" secondAttribute="bottom" constant="8" id="W7S-7J-sTT"/>
-                            <constraint firstItem="FD2-ep-eYd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="f2H-S4-yqX"/>
+                            <constraint firstItem="JQ5-dq-BGF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aWp-Lp-lbc"/>
+                            <constraint firstItem="FD2-ep-eYd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="f2H-S4-yqX"/>
                             <constraint firstItem="XMf-g1-wvX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="svI-Xb-TER"/>
+                            <constraint firstItem="FD2-ep-eYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="wBA-mJ-qKY"/>
+                            <constraint firstItem="JQ5-dq-BGF" firstAttribute="top" secondItem="FD2-ep-eYd" secondAttribute="bottom" constant="8" id="wqS-07-x4g"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2ja-rn-6Zu"/>
+                                <exclude reference="8Ud-mg-JkW"/>
+                                <exclude reference="SeB-xW-Wyl"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="button" destination="XMf-g1-wvX" id="LMw-ZL-yrB"/>
-                        <outlet property="textView" destination="FD2-ep-eYd" id="e3B-vH-WYA"/>
+                        <outlet property="button" destination="XMf-g1-wvX" id="KIq-DB-KNG"/>
+                        <outlet property="characterCount" destination="JQ5-dq-BGF" id="5vJ-kE-oHA"/>
+                        <outlet property="textView" destination="FD2-ep-eYd" id="iXJ-yF-9p5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439.5" y="418.5"/>
+            <point key="canvasLocation" x="438.5" y="417.5"/>
         </scene>
     </scenes>
 </document>

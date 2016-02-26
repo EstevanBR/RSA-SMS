@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  Viewself.messageVCm
 //  rsasms
 //
 //  Created by Estevan Hernandez on 2/25/16.
@@ -7,18 +7,27 @@
 //
 @import MessageUI;
 @import UIKit;
-
+#import "RSA.h"
 #import "ViewController.h"
-NSString *const kScheme;
+#define MAX_STRING_LENGTH 255
 
 @interface ViewController ()
+@property (strong, nonatomic) MFMessageComposeViewController *messageVC;
+@property (strong, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) IBOutlet UIButton *button;
+@property (strong, nonatomic) IBOutlet UILabel *characterCount;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.textView.delegate = self;
+    if([MFMessageComposeViewController canSendText])
+    {
+        self.messageVC = [MFMessageComposeViewController new];
+        self.messageVC.messageComposeDelegate = self;
+    }
     [self.button addTarget:self
                     action:@selector(buttonPressed)
           forControlEvents:UIControlEventTouchUpInside];
@@ -37,32 +46,32 @@ NSString *const kScheme;
     NSLog(@"sender is %@", [sender class]);
     sender = [sender object];
     self.url = sender;//(NSURL *)[sender object];
-    NSLog(@"self.url lastPathComponent %@",[self.url lastPathComponent]);
-    self.textView.text = [self.url lastPathComponent];
+    //NSLog(@"self.url lastPathComponent %@",[self.url lastPathComponent]);
+    //self.textView.text = [self.url lastPathComponent];
+    self.textView.text = [RSA getStringFromEncodedNSURL:self.url];
 }
 
 -(void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
     NSLog(@"result");
+    [self.messageVC dismissViewControllerAnimated:YES completion:^(void){}];
     
 }
 
 -(void)buttonPressed {
-    MFMessageComposeViewController *controller = [MFMessageComposeViewController new];
     if([MFMessageComposeViewController canSendText])
     {
-        controller.body = [self newDeepLinkSMSForText:self.textView.text];
-        controller.recipients = [NSArray arrayWithObjects:@"1(234)567-8910", nil];
-        controller.messageComposeDelegate = self;
-        //[self presentModalViewController:controller animated:YES];
+        self.messageVC.body = [RSA newDeepLinkForText:self.textView.text];
+        self.messageVC.recipients = [NSArray arrayWithObjects:@"1(707)303-5540", nil];
+        self.messageVC.messageComposeDelegate = self;
         if([MFMessageComposeViewController canSendText]) {
-            [self presentViewController:controller animated:YES completion:nil];
+            [self presentViewController:self.messageVC animated:YES completion:^(void){}];
         } else {
             NSLog(@"cannot send messages");
         }
     }
 }
--(NSString *)newDeepLinkSMSForText:(NSString *)aText {
-    aText = [@"<rsasms://" stringByAppendingString:[aText stringByAppendingString:@">"]];
-    return aText;
+
+-(void)textViewDidChange:(UITextView *)textView {
+    self.characterCount.text = [NSString stringWithFormat:@"%lu / %d", [self.textView.text length], MAX_STRING_LENGTH];
 }
 @end
