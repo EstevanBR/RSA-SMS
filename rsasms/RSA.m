@@ -8,6 +8,7 @@
 
 #import "RSA.h"
 @import Foundation;
+
 @implementation RSA
 -(id)init {
     self = [super init];
@@ -16,14 +17,13 @@
 
 +(NSString *)getStringFromEncodedNSURL:(NSURL *)aUrl {
     NSString *string = [aUrl lastPathComponent];
-    NSLog(@"encoded string from NSURL is %@", string);
     NSData *data = [[NSData alloc] initWithBase64EncodedString:string options:0];
     string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"decoded string: %@", string);
     return string;
 }
 +(NSString *)getEncodedStringForString:(NSString *)aString {
     NSString *base64 = [[aString dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0];
-    NSLog(@"encoded string is %@", base64);
     return base64;
 }
 +(NSString *)newDeepLinkForText:(NSString *)aText {

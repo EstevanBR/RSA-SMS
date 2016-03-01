@@ -46,8 +46,8 @@
     NSLog(@"sender is %@", [sender class]);
     sender = [sender object];
     self.url = sender;//(NSURL *)[sender object];
-    //NSLog(@"self.url lastPathComponent %@",[self.url lastPathComponent]);
-    //self.textView.text = [self.url lastPathComponent];
+    NSLog(@"self.url lastPathComponent %@",[self.url lastPathComponent]);
+    self.textView.text = [self.url lastPathComponent];
     self.textView.text = [RSA getStringFromEncodedNSURL:self.url];
 }
 
@@ -70,7 +70,6 @@
         }
     }
 }
-
 -(void)textViewDidChange:(UITextView *)textView {
     self.characterCount.text = [NSString stringWithFormat:@"%lu / %d", [self.textView.text length], MAX_STRING_LENGTH];
 }

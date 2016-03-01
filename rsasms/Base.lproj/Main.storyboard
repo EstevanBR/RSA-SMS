@@ -19,51 +19,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FD2-ep-eYd">
-                                <rect key="frame" x="8" y="20" width="359" height="240"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="16" y="20" width="343" height="300"/>
+                                <color key="backgroundColor" red="0.19116052985191345" green="0.19115480780601501" blue="0.19115807116031647" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="N0N-DQ-vig"/>
+                                    <constraint firstAttribute="height" constant="300" id="56l-S9-6QA"/>
                                 </constraints>
+                                <color key="textColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMf-g1-wvX">
-                                <rect key="frame" x="138" y="268" width="100" height="21"/>
+                                <rect key="frame" x="16" y="328" width="100" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="8WB-P5-dba"/>
+                                    <constraint firstAttribute="height" constant="25" id="9DN-5P-mS6"/>
+                                    <constraint firstAttribute="width" constant="100" id="ILr-rZ-fJp"/>
                                 </constraints>
-                                <state key="normal" title="Send Encoded"/>
+                                <state key="normal" title="Send Encoded">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQ5-dq-BGF">
-                                <rect key="frame" x="16" y="268" width="44" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/255" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQ5-dq-BGF">
+                                <rect key="frame" x="124" y="328" width="44" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="xLB-Lj-JOU"/>
+                                    <constraint firstAttribute="height" constant="25" id="xNF-fg-u0l"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.21447423986486486" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.97926521301269531" green="0.8409467339515686" blue="0.88732481002807617" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="FD2-ep-eYd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="2ja-rn-6Zu"/>
-                            <constraint firstItem="FD2-ep-eYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8Ud-mg-JkW"/>
-                            <constraint firstAttribute="trailing" secondItem="FD2-ep-eYd" secondAttribute="trailing" constant="8" id="Oxn-jk-M2r"/>
-                            <constraint firstItem="FD2-ep-eYd" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="SeB-xW-Wyl"/>
-                            <constraint firstItem="XMf-g1-wvX" firstAttribute="top" secondItem="FD2-ep-eYd" secondAttribute="bottom" constant="8" id="W7S-7J-sTT"/>
-                            <constraint firstItem="JQ5-dq-BGF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aWp-Lp-lbc"/>
-                            <constraint firstItem="FD2-ep-eYd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="f2H-S4-yqX"/>
-                            <constraint firstItem="XMf-g1-wvX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="svI-Xb-TER"/>
-                            <constraint firstItem="FD2-ep-eYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="wBA-mJ-qKY"/>
-                            <constraint firstItem="JQ5-dq-BGF" firstAttribute="top" secondItem="FD2-ep-eYd" secondAttribute="bottom" constant="8" id="wqS-07-x4g"/>
+                            <constraint firstItem="JQ5-dq-BGF" firstAttribute="leading" secondItem="XMf-g1-wvX" secondAttribute="trailing" constant="8" id="5n8-UM-z1c"/>
+                            <constraint firstItem="FD2-ep-eYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="BLp-v3-myl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FD2-ep-eYd" secondAttribute="trailing" id="M4v-8M-j9U"/>
+                            <constraint firstItem="XMf-g1-wvX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="UGY-1x-Ti0"/>
+                            <constraint firstItem="JQ5-dq-BGF" firstAttribute="top" secondItem="FD2-ep-eYd" secondAttribute="bottom" constant="8" id="b34-dw-FsN"/>
+                            <constraint firstItem="FD2-ep-eYd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="h4R-oI-Tam"/>
+                            <constraint firstItem="XMf-g1-wvX" firstAttribute="top" secondItem="FD2-ep-eYd" secondAttribute="bottom" constant="8" id="svf-2r-BXo"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="2ja-rn-6Zu"/>
-                                <exclude reference="8Ud-mg-JkW"/>
-                                <exclude reference="SeB-xW-Wyl"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
