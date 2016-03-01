@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -51,9 +52,9 @@
         NSLog(@"%@%c", pathComponents[i], (i < pathComponents.count) ? '/' : '\0');
         string = [string stringByAppendingString:pathComponents[i]];
     }
-    //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    //ViewController *vc = [[ViewController alloc] initWithURL:url];
-    //[navigationController pushViewController:vc animated:YES];
+//    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+//    ViewController *vc = [[ViewController alloc] initWithUrl:url];
+//    [navigationController pushViewController:vc animated:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"url" object:url];
     return YES;
 }

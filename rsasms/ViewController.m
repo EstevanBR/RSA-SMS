@@ -5,7 +5,6 @@
 //  Created by Estevan Hernandez on 2/25/16.
 //  Copyright © 2016 Estevan Hernandez. All rights reserved.
 //
-@import MessageUI;
 @import UIKit;
 #import "RSA.h"
 #import "ViewController.h"
@@ -16,11 +15,17 @@
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) IBOutlet UIButton *button;
 @property (strong, nonatomic) IBOutlet UILabel *characterCount;
+@property (strong, nonatomic) RSA *rsa;
 @end
 
 @implementation ViewController
-
+-(id)initWithUrl:(NSURL *)aUrl {
+    self = [super init];
+    self.url = aUrl;
+    return self;
+}
 - (void)viewDidLoad {
+    NSLog(@"viewLoaded");
     [super viewDidLoad];
     self.textView.delegate = self;
     if([MFMessageComposeViewController canSendText])
@@ -35,6 +40,7 @@
                                              selector:@selector(gotURL:)
                                                  name:@"url"
                                                object:nil];
+    self.rsa = [[RSA alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +77,6 @@
     }
 }
 -(void)textViewDidChange:(UITextView *)textView {
-    self.characterCount.text = [NSString stringWithFormat:@"%lu / %d", [self.textView.text length], MAX_STRING_LENGTH];
+    self.characterCount.text = [NSString stringWithFormat:@"%lu / %d", (unsigned long) [self.textView.text length], MAX_STRING_LENGTH];
 }
 @end

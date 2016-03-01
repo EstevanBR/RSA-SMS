@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+//@import Security;
+@import Foundation;
 
 @interface RSA : NSObject
+@property (strong, nonatomic) NSNumber *e;
+@property (strong, nonatomic) NSNumber *n;
+
 +(NSString *)getStringFromEncodedNSURL:(NSURL *)aUrl;
 +(NSString *)getEncodedStringForString:(NSString *)aString;
 +(NSString *)newDeepLinkForText:(NSString *)aText;

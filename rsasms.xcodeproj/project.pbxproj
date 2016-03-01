@@ -15,6 +15,7 @@
 		2F009CB41C7EF75300D01B85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F009CB21C7EF75300D01B85 /* LaunchScreen.storyboard */; };
 		2F009CBF1C7EF75400D01B85 /* rsasmsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F009CBE1C7EF75400D01B85 /* rsasmsTests.m */; };
 		2F009CCA1C7EF75400D01B85 /* rsasmsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F009CC91C7EF75400D01B85 /* rsasmsUITests.m */; };
+		2F2202C51C85966500FC5CE7 /* rsac.c in Sources */ = {isa = PBXBuildFile; fileRef = 2F2202C41C85966500FC5CE7 /* rsac.c */; };
 		D0245F681C7FF37700DD4A5B /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = D0245F671C7FF37700DD4A5B /* RSA.m */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,8 @@
 		2F009CC51C7EF75400D01B85 /* rsasmsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rsasmsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F009CC91C7EF75400D01B85 /* rsasmsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rsasmsUITests.m; sourceTree = "<group>"; };
 		2F009CCB1C7EF75400D01B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F2202C41C85966500FC5CE7 /* rsac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rsac.c; path = ../../RSA_C/rsac.c; sourceTree = "<group>"; };
+		2F2202C61C85969A00FC5CE7 /* rsac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rsac.h; sourceTree = "<group>"; };
 		D0245F661C7FF37700DD4A5B /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
 		D0245F671C7FF37700DD4A5B /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +107,8 @@
 		2F009CA31C7EF75300D01B85 /* rsasms */ = {
 			isa = PBXGroup;
 			children = (
+				2F2202C41C85966500FC5CE7 /* rsac.c */,
+				2F2202C61C85969A00FC5CE7 /* rsac.h */,
 				2F009CA71C7EF75300D01B85 /* AppDelegate.h */,
 				2F009CA81C7EF75300D01B85 /* AppDelegate.m */,
 				2F009CAA1C7EF75300D01B85 /* ViewController.h */,
@@ -280,6 +285,7 @@
 				2F009CA91C7EF75300D01B85 /* AppDelegate.m in Sources */,
 				D0245F681C7FF37700DD4A5B /* RSA.m in Sources */,
 				2F009CA61C7EF75300D01B85 /* main.m in Sources */,
+				2F2202C51C85966500FC5CE7 /* rsac.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

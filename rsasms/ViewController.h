@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@import MessageUI;
 
 @interface ViewController : UIViewController <UITextViewDelegate, MFMessageComposeViewControllerDelegate, UIApplicationDelegate>
+
 @property (strong, nonatomic) NSURL *url;
 
+-(id)initWithUrl:(NSURL *)aUrl;
 
 @end
 
