@@ -9,8 +9,8 @@
 #ifndef rsac_h
 #define rsac_h
 
-void encryptToFile (char const *textToProcess, unsigned long const p, unsigned long const q, const char *fileName);
-void decryptFromFileToFile(unsigned long const p, unsigned long const q, const char *fileName, const char *fileNameDest);
+void encryptToFile (char const *textToProcess, unsigned long const n, unsigned long const e, const char *fileName);
+void decryptFromFileToFile(unsigned long const d, unsigned long const n, const char *fileName, const char *fileNameDest);
 unsigned long modpow(unsigned long base,unsigned long exponent,unsigned long modulus);
 void clear(void);
 unsigned long modInverse (unsigned long, unsigned long);
