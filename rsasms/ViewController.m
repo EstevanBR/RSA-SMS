@@ -15,7 +15,6 @@
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) IBOutlet UIButton *button;
 @property (strong, nonatomic) IBOutlet UILabel *characterCount;
-@property (strong, nonatomic) RSA *rsa;
 @end
 
 @implementation ViewController
@@ -28,11 +27,6 @@
     NSLog(@"viewLoaded");
     [super viewDidLoad];
     self.textView.delegate = self;
-    if([MFMessageComposeViewController canSendText])
-    {
-        self.messageVC = [MFMessageComposeViewController new];
-        self.messageVC.messageComposeDelegate = self;
-    }
     [self.button addTarget:self
                     action:@selector(buttonPressed)
           forControlEvents:UIControlEventTouchUpInside];
@@ -40,7 +34,6 @@
                                              selector:@selector(gotURL:)
                                                  name:@"url"
                                                object:nil];
-    self.rsa = [[RSA alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +43,9 @@
 
 -(void)gotURL:(id)sender {
     NSLog(@"sender is %@", [sender class]);
+    if (![self.messageVC isEqual:[NSNull null]]) {
+        [self.messageVC dismissViewControllerAnimated:YES completion:^(void){}];
+    }
     sender = [sender object];
     self.url = sender;//(NSURL *)[sender object];
     NSLog(@"self.url lastPathComponent %@",[self.url lastPathComponent]);
@@ -64,8 +60,12 @@
 }
 
 -(void)buttonPressed {
+    NSLog(@"button pressed");
     if([MFMessageComposeViewController canSendText])
     {
+        NSLog(@"can send messages");
+        self.messageVC = [MFMessageComposeViewController new];
+        self.messageVC.messageComposeDelegate = self;
         self.messageVC.body = [RSA newDeepLinkForText:self.textView.text];
         self.messageVC.recipients = [NSArray arrayWithObjects:@"1(707)303-5540", nil];
         self.messageVC.messageComposeDelegate = self;
@@ -79,4 +79,17 @@
 -(void)textViewDidChange:(UITextView *)textView {
     self.characterCount.text = [NSString stringWithFormat:@"%lu / %d", (unsigned long) [self.textView.text length], MAX_STRING_LENGTH];
 }
+
+-(BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options {
+    NSArray *pathComponents = [url pathComponents];
+    NSString* string;
+    NSLog(@"%@/", [url host]);
+    for (int i = 1; i < [pathComponents count]; i++) {
+        NSLog(@"%@%c", pathComponents[i], (i < pathComponents.count) ? '/' : '\0');
+        string = [string stringByAppendingString:pathComponents[i]];
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"url" object:url];
+    return YES;
+}
+
 @end

@@ -74,7 +74,7 @@
         <!--Conversations View Controller-->
         <scene sceneID="q14-f8-CxW">
             <objects>
-                <tableViewController title="Conversations View Controller" id="2b5-6d-obG" sceneMemberID="viewController">
+                <tableViewController title="Conversations View Controller" id="2b5-6d-obG" customClass="RSAConversationTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="58L-2F-zD5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

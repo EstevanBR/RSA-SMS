@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-//@import Security;
 @import Foundation;
 
 @interface RSA : NSObject
-@property (strong, nonatomic) NSNumber *e;
-@property (strong, nonatomic) NSNumber *n;
+@property (strong, nonatomic) NSNumber *eKey;
+@property (strong, nonatomic) NSNumber *nKey;
 
 +(NSString *)getStringFromEncodedNSURL:(NSURL *)aUrl;
 +(NSString *)getEncodedStringForString:(NSString *)aString;
