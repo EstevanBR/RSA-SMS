@@ -7,8 +7,10 @@
 //
 
 #import "RSAConversationTableViewController.h"
+#import "MessageHistory.h"
 
 @interface RSAConversationTableViewController ()
+@property (strong, nonatomic) MessageHistory* messageHistory;
 
 @end
 
@@ -16,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.messageHistory = [MessageHistory getMessagesFromArchive];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -32,13 +34,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.messageHistory.messages.count;
 }
 
 /*

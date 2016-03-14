@@ -8,6 +8,8 @@
 @import UIKit;
 #import "RSA.h"
 #import "ViewController.h"
+#import "Message.h"
+#import "MessageHistory.h"
 #define MAX_STRING_LENGTH 255
 
 @interface ViewController ()
@@ -15,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) IBOutlet UIButton *button;
 @property (strong, nonatomic) IBOutlet UILabel *characterCount;
+@property (strong, nonatomic) MessageHistory *messageHistory;
 @end
 
 @implementation ViewController
@@ -27,6 +30,8 @@
     NSLog(@"viewLoaded");
     [super viewDidLoad];
     self.textView.delegate = self;
+    //[self.textView setBackgroundColor:[UIColor blackColor]];
+    [self.textView setTextColor:[UIColor whiteColor]];
     [self.button addTarget:self
                     action:@selector(buttonPressed)
           forControlEvents:UIControlEventTouchUpInside];
@@ -34,6 +39,7 @@
                                              selector:@selector(gotURL:)
                                                  name:@"url"
                                                object:nil];
+    self.messageHistory = [MessageHistory getMessagesFromArchive];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,11 +55,18 @@
     sender = [sender object];
     self.url = sender;//(NSURL *)[sender object];
     NSLog(@"self.url lastPathComponent %@",[self.url lastPathComponent]);
-    self.textView.text = [self.url lastPathComponent];
-    self.textView.text = [RSA getStringFromEncodedNSURL:self.url];
+    self.textView.userInteractionEnabled = NO;
+    Message *message = [[Message alloc] init];
+    message.date = [NSDate date];
+    message.contact = self.url.pathComponents[2];
+    //[self.textView setBackgroundColor:[UIColor blackColor]];
+    [self.textView setTextColor:[UIColor grayColor]];
+    NSString *string = @"Decoded message:\n";
+    self.textView.text = [NSString stringWithFormat:@"%@%@",string,[RSA getStringFromEncodedNSURL:self.url]];
 }
 
--(void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+-(void)messageComposeViewController:(MFMessageComposeViewController *)controller
+                didFinishWithResult:(MessageComposeResult)result {
     NSLog(@"result");
     [self.messageVC dismissViewControllerAnimated:YES completion:^(void){}];
     
@@ -61,26 +74,33 @@
 
 -(void)buttonPressed {
     NSLog(@"button pressed");
-    if([MFMessageComposeViewController canSendText])
-    {
+    if([MFMessageComposeViewController canSendText]) {
         NSLog(@"can send messages");
         self.messageVC = [MFMessageComposeViewController new];
         self.messageVC.messageComposeDelegate = self;
         self.messageVC.body = [RSA newDeepLinkForText:self.textView.text];
-        self.messageVC.recipients = [NSArray arrayWithObjects:@"1(707)303-5540", nil];
+        self.messageVC.recipients = [NSArray arrayWithObjects:
+                                     @"1(707)303-5540", nil];
         self.messageVC.messageComposeDelegate = self;
         if([MFMessageComposeViewController canSendText]) {
-            [self presentViewController:self.messageVC animated:YES completion:^(void){}];
+            [self presentViewController:self.messageVC
+                               animated:YES
+                             completion:^(void){}];
         } else {
             NSLog(@"cannot send messages");
         }
+    } else {
+        self.textView.text = [RSA newDeepLinkForText:self.textView.text];
     }
 }
 -(void)textViewDidChange:(UITextView *)textView {
-    self.characterCount.text = [NSString stringWithFormat:@"%lu / %d", (unsigned long) [self.textView.text length], MAX_STRING_LENGTH];
+    self.characterCount.text = [NSString stringWithFormat:@"%lu / %d",
+                                (unsigned long) [self.textView.text length],
+                                MAX_STRING_LENGTH];
 }
 
--(BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options {
+-(BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url
+           options:(nonnull NSDictionary<NSString *,id> *)options {
     NSArray *pathComponents = [url pathComponents];
     NSString* string;
     NSLog(@"%@/", [url host]);
@@ -88,7 +108,8 @@
         NSLog(@"%@%c", pathComponents[i], (i < pathComponents.count) ? '/' : '\0');
         string = [string stringByAppendingString:pathComponents[i]];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"url" object:url];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"url"
+                                                        object:url];
     return YES;
 }
 

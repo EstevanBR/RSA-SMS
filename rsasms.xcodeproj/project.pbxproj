@@ -18,7 +18,8 @@
 		D00897C11C86003E0097661B /* RSAConversationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00897C01C86003E0097661B /* RSAConversationTableViewController.m */; };
 		D00897C41C860F0B0097661B /* RASConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D00897C31C860F0B0097661B /* RASConversationCell.m */; };
 		D0245F681C7FF37700DD4A5B /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = D0245F671C7FF37700DD4A5B /* RSA.m */; };
-		D08935AA1C86858400891E4A /* Decrypted.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08935A91C86858400891E4A /* Decrypted.xib */; };
+		D07586831C940FD9001A3BAF /* MessageHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D07586821C940FD9001A3BAF /* MessageHistory.m */; };
+		D07586861C96A00E001A3BAF /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D07586851C96A00E001A3BAF /* Message.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +62,10 @@
 		D00897C31C860F0B0097661B /* RASConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RASConversationCell.m; sourceTree = "<group>"; };
 		D0245F661C7FF37700DD4A5B /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
 		D0245F671C7FF37700DD4A5B /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
-		D08935A91C86858400891E4A /* Decrypted.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Decrypted.xib; sourceTree = "<group>"; };
+		D07586811C940FD9001A3BAF /* MessageHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageHistory.h; sourceTree = "<group>"; };
+		D07586821C940FD9001A3BAF /* MessageHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageHistory.m; sourceTree = "<group>"; };
+		D07586841C96A00E001A3BAF /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		D07586851C96A00E001A3BAF /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +120,10 @@
 				2F009CA81C7EF75300D01B85 /* AppDelegate.m */,
 				2F009CAA1C7EF75300D01B85 /* ViewController.h */,
 				2F009CAB1C7EF75300D01B85 /* ViewController.m */,
-				D08935A91C86858400891E4A /* Decrypted.xib */,
+				D07586811C940FD9001A3BAF /* MessageHistory.h */,
+				D07586821C940FD9001A3BAF /* MessageHistory.m */,
+				D07586841C96A00E001A3BAF /* Message.h */,
+				D07586851C96A00E001A3BAF /* Message.m */,
 				D0245F661C7FF37700DD4A5B /* RSA.h */,
 				D0245F671C7FF37700DD4A5B /* RSA.m */,
 				D00897BF1C86003E0097661B /* RSAConversationTableViewController.h */,
@@ -264,7 +271,6 @@
 			files = (
 				2F009CB41C7EF75300D01B85 /* LaunchScreen.storyboard in Resources */,
 				2F009CB11C7EF75300D01B85 /* Assets.xcassets in Resources */,
-				D08935AA1C86858400891E4A /* Decrypted.xib in Resources */,
 				2F009CAF1C7EF75300D01B85 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,8 +297,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F009CAC1C7EF75300D01B85 /* ViewController.m in Sources */,
+				D07586861C96A00E001A3BAF /* Message.m in Sources */,
 				D00897C41C860F0B0097661B /* RASConversationCell.m in Sources */,
 				2F009CA91C7EF75300D01B85 /* AppDelegate.m in Sources */,
+				D07586831C940FD9001A3BAF /* MessageHistory.m in Sources */,
 				D00897C11C86003E0097661B /* RSAConversationTableViewController.m in Sources */,
 				D0245F681C7FF37700DD4A5B /* RSA.m in Sources */,
 				2F009CA61C7EF75300D01B85 /* main.m in Sources */,
