@@ -1,0 +1,43 @@
+RSAsms
+
+Pronounced Rasmus
+
+meaning beloved
+
+intro screen
+
+definiton of Crypt
+
+2nd screen short description of RSA, who made it, and how it works.
+
+screen fades from white color scheme to dark. (dramatic)
+
+main screen, tabbed app
+
+tabs:
+CONTACTS
+	import contacts (you don't have to allow)
+NEW MESSAGE
+	compose new draft
+HISTORYq
+	show conversations
+
+Person A has d, e, and n
+PUBLIC KEY = e and n, sent as metadata in sms
+PRIVATE KEY = d kept secret.
+
+Person A can give person b public key, so person b can send person A messages, and person A can decrypt them
+Person B can give person b public key, so person b can send person B messages, and person B can decrypt them
+
+private keys are not shared.
+
+taps send: opens SMS view with contact
+
+keys can be changed.
+
+
+models:
+	conversation model
+		properties:
+			recipient
+			array of messages

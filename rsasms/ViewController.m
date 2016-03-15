@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *button;
 @property (strong, nonatomic) IBOutlet UILabel *characterCount;
 @property (strong, nonatomic) MessageHistory *messageHistory;
+@property (strong, nonatomic) RSA *rsa;
 @end
 
 @implementation ViewController
@@ -30,6 +31,7 @@
     NSLog(@"viewLoaded");
     [super viewDidLoad];
     self.textView.delegate = self;
+    self.rsa = [[RSA alloc] init];
     //[self.textView setBackgroundColor:[UIColor blackColor]];
     [self.textView setTextColor:[UIColor whiteColor]];
     [self.button addTarget:self
@@ -74,11 +76,12 @@
 
 -(void)buttonPressed {
     NSLog(@"button pressed");
+    NSString *encryptedString = [self.rsa encryptString:self.textView.text];
     if([MFMessageComposeViewController canSendText]) {
         NSLog(@"can send messages");
         self.messageVC = [MFMessageComposeViewController new];
         self.messageVC.messageComposeDelegate = self;
-        self.messageVC.body = [RSA newDeepLinkForText:self.textView.text];
+        self.messageVC.body = [RSA newDeepLinkForText:encryptedString];
         self.messageVC.recipients = [NSArray arrayWithObjects:
                                      @"1(707)303-5540", nil];
         self.messageVC.messageComposeDelegate = self;
@@ -90,7 +93,7 @@
             NSLog(@"cannot send messages");
         }
     } else {
-        self.textView.text = [RSA newDeepLinkForText:self.textView.text];
+        self.textView.text = [RSA newDeepLinkForText:encryptedString];
     }
 }
 -(void)textViewDidChange:(UITextView *)textView {

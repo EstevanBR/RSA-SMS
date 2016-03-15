@@ -18,6 +18,7 @@
 		D00897C11C86003E0097661B /* RSAConversationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00897C01C86003E0097661B /* RSAConversationTableViewController.m */; };
 		D00897C41C860F0B0097661B /* RASConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D00897C31C860F0B0097661B /* RASConversationCell.m */; };
 		D0245F681C7FF37700DD4A5B /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = D0245F671C7FF37700DD4A5B /* RSA.m */; };
+		D02587161C9791D700BEE0D8 /* rsalib.c in Sources */ = {isa = PBXBuildFile; fileRef = D02587141C9791D700BEE0D8 /* rsalib.c */; };
 		D07586831C940FD9001A3BAF /* MessageHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D07586821C940FD9001A3BAF /* MessageHistory.m */; };
 		D07586861C96A00E001A3BAF /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D07586851C96A00E001A3BAF /* Message.m */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,8 @@
 		D00897C31C860F0B0097661B /* RASConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RASConversationCell.m; sourceTree = "<group>"; };
 		D0245F661C7FF37700DD4A5B /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
 		D0245F671C7FF37700DD4A5B /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
+		D02587141C9791D700BEE0D8 /* rsalib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rsalib.c; sourceTree = "<group>"; };
+		D02587151C9791D700BEE0D8 /* rsalib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rsalib.h; sourceTree = "<group>"; };
 		D07586811C940FD9001A3BAF /* MessageHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageHistory.h; sourceTree = "<group>"; };
 		D07586821C940FD9001A3BAF /* MessageHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageHistory.m; sourceTree = "<group>"; };
 		D07586841C96A00E001A3BAF /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 				D07586851C96A00E001A3BAF /* Message.m */,
 				D0245F661C7FF37700DD4A5B /* RSA.h */,
 				D0245F671C7FF37700DD4A5B /* RSA.m */,
+				D02587141C9791D700BEE0D8 /* rsalib.c */,
+				D02587151C9791D700BEE0D8 /* rsalib.h */,
 				D00897BF1C86003E0097661B /* RSAConversationTableViewController.h */,
 				D00897C01C86003E0097661B /* RSAConversationTableViewController.m */,
 				D00897C21C860F0B0097661B /* RASConversationCell.h */,
@@ -296,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D02587161C9791D700BEE0D8 /* rsalib.c in Sources */,
 				2F009CAC1C7EF75300D01B85 /* ViewController.m in Sources */,
 				D07586861C96A00E001A3BAF /* Message.m in Sources */,
 				D00897C41C860F0B0097661B /* RASConversationCell.m in Sources */,

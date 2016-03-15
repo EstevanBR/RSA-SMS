@@ -16,4 +16,6 @@
 +(NSString *)getStringFromEncodedNSURL:(NSURL *)aUrl;
 +(NSString *)getEncodedStringForString:(NSString *)aString;
 +(NSString *)newDeepLinkForText:(NSString *)aText;
+-(NSString *)encryptString:(NSString *)aString;
+-(NSString *)decryptString:(NSString *)aString;
 @end
