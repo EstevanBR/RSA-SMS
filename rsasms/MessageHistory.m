@@ -13,10 +13,12 @@
 -(id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     self.messages = [aDecoder decodeObjectForKey:kMessages];
+    //self.myUUID = [aDecoder decodeObjectForKey:kUUID];
     return self;
 }
 -(void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.messages forKey:kMessages];
+    //[aCoder encodeObject:self.messages forKey:kUUID];
 }
 +(void)saveMessagesToArchive:(MessageHistory *)aMessageHistory {
     [NSKeyedArchiver archiveRootObject:aMessageHistory toFile:[MessageHistory getPathToArchive]];
@@ -29,14 +31,11 @@
 }
 +(MessageHistory *)getMessagesFromArchive {
     return [NSKeyedUnarchiver unarchiveObjectWithFile:[MessageHistory getPathToArchive]];
-    
 }
-
 -(void)addMessageToHistory:(Message *)aMessage {
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:self.messages];
     [mutableArray addObject:aMessage];
     self.messages = (NSArray *)mutableArray;
-    
 }
 
 @end

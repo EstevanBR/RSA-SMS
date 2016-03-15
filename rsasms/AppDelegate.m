@@ -9,15 +9,24 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
+static NSString *const kAppHasRunOnce = @"appHasRunOnce";
+static NSString *const kUUID = @"uuid";
+//NSString* kUUID = @"UUID";
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //http://stackoverflow.com/a/11371362
+    //Matt Wildling
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey:kAppHasRunOnce] == NO) {
+        [defaults setBool:YES forKey:kAppHasRunOnce];
+        [defaults setObject:[[NSUUID UUID] UUIDString] forKey:kUUID];
+    }
     NSLog(@"app launched");
     return YES;
 }
@@ -46,6 +55,7 @@
 
 -(BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options {
     NSArray *pathComponents = [url pathComponents];
+    NSString *host = [url host];
     NSString* string;
     NSLog(@"%@/", [url host]);
     for (int i = 1; i < [pathComponents count]; i++) {

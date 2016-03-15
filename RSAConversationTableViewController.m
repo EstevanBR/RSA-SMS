@@ -8,6 +8,7 @@
 
 #import "RSAConversationTableViewController.h"
 #import "MessageHistory.h"
+#define kMESSAGECELL @"Message"
 
 @interface RSAConversationTableViewController ()
 @property (strong, nonatomic) MessageHistory* messageHistory;
@@ -41,15 +42,14 @@
     return self.messageHistory.messages.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMESSAGECELL forIndexPath:indexPath];
     
     // Configure the cell...
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

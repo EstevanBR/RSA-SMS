@@ -41,3 +41,14 @@ models:
 		properties:
 			recipient
 			array of messages
+
+	message:
+		properties:
+			sender
+			content
+			date
+	contact:
+		properties:
+			public key (e and n)
+			sms #
+			

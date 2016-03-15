@@ -34,7 +34,11 @@
 }
 +(NSString *)newDeepLinkForText:(NSString *)aText {
     NSLog(@"new deep link before %@", aText);
-    NSString *publicKeyBase64String = @"rsasms://Estevan/7/3904567/";
+    NSString *hostUUIDString = [RSA getEncodedStringForString:[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid"]];
+    
+    
+    NSString *urlString = [NSString stringWithFormat:@"rsasms://%@/%@/%@/", hostUUIDString, @7, @3904567];
+    NSString *publicKeyBase64String = urlString;
     aText = [publicKeyBase64String stringByAppendingString:[RSA getEncodedStringForString:aText]];
     return aText;
 }
