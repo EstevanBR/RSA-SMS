@@ -42,6 +42,12 @@
     aText = [publicKeyBase64String stringByAppendingString:[RSA getEncodedStringForString:aText]];
     return aText;
 }
++(NSString *)newDeepLinkForAuthorization {
+    NSString *hostUUIDString = [RSA getEncodedStringForString:[[NSUserDefaults standardUserDefaults] objectForKey:@"uuid"]];    
+    NSString *urlString = [NSString stringWithFormat:@"rsasms://%@/", hostUUIDString];
+    return urlString;
+}
+
 -(NSString *)encryptString:(NSString *)aString {
     const char *string = aString.UTF8String;
     unsigned long max = [aString length];
@@ -55,7 +61,6 @@
     return [NSString stringWithUTF8String:string];
 }
 -(NSString *)decryptString:(NSString *)aString {
-    //    const unichar *banana = [aString ];
     const char *string = aString.UTF8String;
     unsigned long max = [aString length];
     unsigned long decoded[max];

@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum" translatesAutoresizingMaskIntoConstraints="NO" id="FD2-ep-eYd">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FD2-ep-eYd">
                                 <rect key="frame" x="16" y="20" width="288" height="300"/>
                                 <color key="backgroundColor" red="0.19116052985191345" green="0.19115480780601501" blue="0.19115807116031647" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egz-IS-kXR">
-                                <rect key="frame" x="154" y="319" width="66" height="30"/>
+                                <rect key="frame" x="20" y="319" width="66" height="30"/>
                                 <state key="normal" title="Authorize"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Enter phone number below and tap Authorize" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoQ-2y-8yq">
@@ -39,7 +39,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="egz-IS-kXR" firstAttribute="centerY" secondItem="7mv-mp-NkU" secondAttribute="centerY" id="Py3-fE-f2Z"/>
-                            <constraint firstItem="egz-IS-kXR" firstAttribute="centerX" secondItem="7mv-mp-NkU" secondAttribute="centerX" id="sFC-8M-KO4"/>
+                            <constraint firstItem="egz-IS-kXR" firstAttribute="leading" secondItem="7mv-mp-NkU" secondAttribute="leading" constant="20" id="sFC-8M-KO4"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
