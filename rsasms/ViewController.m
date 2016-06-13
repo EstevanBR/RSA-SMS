@@ -12,11 +12,16 @@
 #import "MessageHistory.h"
 #define MAX_STRING_LENGTH 255
 
-@interface ViewController ()
+@interface ViewController () <UIApplicationDelegate>
 @property (strong, nonatomic) MFMessageComposeViewController *messageVC;
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) IBOutlet UIButton *button;
 @property (strong, nonatomic) IBOutlet UILabel *characterCount;
+@property (strong, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *characterCountBottomSpace;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sendButtonBottomSpace;
+
 @property (strong, nonatomic) MessageHistory *messageHistory;
 @property (strong, nonatomic) RSA *rsa;
 @end
@@ -27,10 +32,52 @@
     self.url = aUrl;
     return self;
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)keyboardWillShow:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect keyboardFrame = [kbFrame CGRectValue];
+    
+    CGFloat height = keyboardFrame.size.height;
+    
+    NSLog(@"Updating constraints.");
+    // Because the "space" is actually the difference between the bottom lines of the 2 views,
+    // we need to set a negative constant value here.
+    self.sendButtonBottomSpace.constant = height-40;
+    self.characterCountBottomSpace.constant = height-40;
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view layoutIfNeeded];
+    }];
+    
+}
+
+-(void)keyboardWillHide:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    self.sendButtonBottomSpace.constant = 10;
+    self.characterCountBottomSpace.constant = 10;
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+- (IBAction)dismissKeyboard:(id)sender {
+    [self.textView resignFirstResponder];
+}
+
 - (void)viewDidLoad {
     NSLog(@"viewLoaded");
     [super viewDidLoad];
     self.textView.delegate = self;
+    [self.textView becomeFirstResponder];
     self.rsa = [[RSA alloc] init];
     //[self.textView setBackgroundColor:[UIColor blackColor]];
     [self.textView setTextColor:[UIColor whiteColor]];
@@ -60,7 +107,7 @@
     self.textView.userInteractionEnabled = NO;
     Message *message = [[Message alloc] init];
     message.date = [NSDate date];
-    message.contact = self.url.pathComponents[2];
+    message.sender = self.url.pathComponents[2];
     //[self.textView setBackgroundColor:[UIColor blackColor]];
     [self.textView setTextColor:[UIColor grayColor]];
     NSString *string = @"Decoded message:\n";
@@ -83,8 +130,9 @@
         self.messageVC.messageComposeDelegate = self;
         self.messageVC.body = [RSA newDeepLinkForText:encryptedString];
         self.messageVC.recipients = [NSArray arrayWithObjects:
-                                     @"1(707)303-5540", nil];
+                                     self.phoneTextField.text, nil];
         self.messageVC.messageComposeDelegate = self;
+        [self.textView resignFirstResponder];
         if([MFMessageComposeViewController canSendText]) {
             [self presentViewController:self.messageVC
                                animated:YES

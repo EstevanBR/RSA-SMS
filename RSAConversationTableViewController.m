@@ -7,11 +7,12 @@
 //
 
 #import "RSAConversationTableViewController.h"
+#import "RSAConversationTableViewCell.h"
 #import "MessageHistory.h"
 #define kMESSAGECELL @"Message"
 
 @interface RSAConversationTableViewController ()
-@property (strong, nonatomic) MessageHistory* messageHistory;
+@property (weak, nonatomic) MessageHistory* messageHistory;
 
 @end
 
@@ -44,9 +45,8 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMESSAGECELL forIndexPath:indexPath];
-    
-    // Configure the cell...
+    RSAConversationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMESSAGECELL forIndexPath:indexPath];
+    cell.message = self.messageHistory.messages[indexPath.row];
     
     return cell;
 }

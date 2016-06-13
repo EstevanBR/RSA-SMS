@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Message.h"
 
 @interface MessageHistory : NSObject <NSCoding>
-@property (strong, nonatomic) NSArray *messages;
+@property (strong, nonatomic) NSArray<Message *> *messages;
 +(void)saveMessagesToArchive:(MessageHistory *)aMessageHistory;
 //+(NSString *)getPathToArchive;
 +(MessageHistory *)getMessagesFromArchive;

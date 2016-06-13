@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Message : NSObject
-@property (strong, nonatomic) NSString *contact;
-@property (strong, nonatomic) NSString *message;
+@interface Message : NSObject <NSCoding>
+@property (strong, nonatomic) NSString *sender;
+@property (strong, nonatomic) NSNumber *eKey;
+@property (strong, nonatomic) NSNumber *nKey;
+@property (strong, nonatomic) NSString *encryptedMessage;
+@property (weak, nonatomic) NSString *message;
 @property (strong, nonatomic) NSDate *date;
 
 
